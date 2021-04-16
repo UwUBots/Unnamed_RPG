@@ -8,6 +8,7 @@ public class Player extends GameObject{
         super(x, y, id);
     }
 
+
     public void tick() {
         x += velX;
         y += velY;

@@ -12,13 +12,15 @@ public class BasicRPG extends Canvas implements Runnable {
     private Thread thread;
     boolean running = false;
 
-    private Handler handler;
+    private final Handler handler;
 
     public BasicRPG(){
         handler = new Handler();
+        this.addKeyListener(new KeyInput(handler));
+
         new Window(WIDTH, HEIGHT, "GAME", this);
 
-        handler.addObject(new Player(100, 100, ID.Player));
+        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
     }
 
     public synchronized void start(){
